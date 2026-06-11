@@ -1,14 +1,13 @@
 ﻿# CAS D'USAGE 8 — Apprentissage par Renforcement
 ## Optimiser une décision séquentielle par essais et erreurs dans un environnement simulé
 
-> **Auteur :** Emmanuel TSAGUE — Data Scientist / Data Analyst  
+> **Auteur :** TSAGUE EMMANUEL — Data Scientist / Data Analyst  
 > **Domaine :** Machine Learning, Optimisation, Prise de décision  
 > **Repository GitHub :** `reinforcement-learning-business-case`  
 > **Statut :** Portfolio — données simulées  
 > **Date :** Juin 2026
 
 ---
-
 ## 1. TITRE ET RÉSUMÉ EXÉCUTIF
 
 **"Apprentissage par Renforcement pour optimiser la gestion d'énergie d'un bâtiment — Un agent apprend à minimiser les coûts par essais et erreurs"**
@@ -20,7 +19,6 @@ Un système de gestion d'énergie d'un bâtiment doit décider à chaque heure :
 **Résultats hypothétiques :** réduction des coûts énergétiques de 18 % vs stratégie fixe, convergence en 5 000 épisodes.
 
 ---
-
 ## 2. CONTEXTE MÉTIER
 
 > **Décision séquentielle :** suite de décisions interdépendantes où chaque choix influence les options futures. La gestion d'énergie, la gestion de stock, le routage, le trading sont des problèmes de décision séquentielle.
@@ -35,7 +33,6 @@ Un système de gestion d'énergie d'un bâtiment doit décider à chaque heure :
 | **Apprentissage par renforcement** | Apprend par essais/erreurs sans modèle ni exemples étiquetés |
 
 ---
-
 ## 3. LES 6 COMPOSANTS DU RL
 
 > **Agent :** l'entité qui prend les décisions (ici : le système de gestion du bâtiment).
@@ -51,7 +48,6 @@ Un système de gestion d'énergie d'un bâtiment doit décider à chaque heure :
 > **Politique (Policy) :** la stratégie de l'agent — pour chaque état, quelle action choisir. C'est ce que l'agent apprend.
 
 ---
-
 ## 4. PROBLÈME MÉTIER
 
 > "Notre système de chauffage utilise une règle fixe : chauffer si T < 19°C, ne pas chauffer si T ≥ 21°C. Cette règle ignore les tarifs d'électricité (heures creuses/pleines), la météo et l'occupation. Peut-on faire mieux ?"
@@ -64,7 +60,6 @@ Un système de gestion d'énergie d'un bâtiment doit décider à chaque heure :
 5. Interpréter ce que l'agent a appris
 
 ---
-
 ## 5. ENVIRONNEMENT SIMULÉ — BÂTIMENT
 
 ```python
@@ -151,7 +146,6 @@ class BatimentEnergie:
 ```
 
 ---
-
 ## 6. Q-LEARNING — ALGORITHME
 
 > **Q-Learning :** algorithme de RL qui apprend une table Q(état, action) représentant la valeur attendue de chaque action dans chaque état. La mise à jour est : Q(s,a) ← Q(s,a) + α × [r + γ × max Q(s',a') - Q(s,a)]
@@ -253,7 +247,6 @@ agent_rl, historique = entrainer(n_episodes=5000)
 ```
 
 ---
-
 ## 7. COMPARAISON AVEC RÈGLES FIXES
 
 ```python
@@ -304,7 +297,6 @@ print(f"\nGain RL vs règle fixe : {gain:+.1f} %")
 ```
 
 ---
-
 ## 8. VISUALISATION DE L'APPRENTISSAGE
 
 ```python
@@ -367,7 +359,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 ```
 
 ---
-
 ## 9. DÉMARCHE ÉTAPE PAR ÉTAPE
 
 ```
@@ -383,7 +374,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 ```
 
 ---
-
 ## 10. MÉTRIQUES RL
 
 | Métrique | Définition | Valeur simulée |
@@ -395,7 +385,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 | **Taux d'inconfort** | % d'heures hors zone de confort | 4,2 % (RL) vs 8,7 % (fixe) |
 
 ---
-
 ## 11. RÉSULTATS SIMULÉS
 
 | Politique | Reward moyen | Taux inconfort | Coût énergie |
@@ -410,7 +399,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 - Il maintient la température dans la zone de confort sans gaspillage
 
 ---
-
 ## 12. VALEUR MÉTIER
 
 | Valeur | Description |
@@ -421,7 +409,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 | **Automatisation** | Pas d'intervention humaine une fois la politique apprise |
 
 ---
-
 ## 13. LIMITES
 
 | Limite | Description |
@@ -433,7 +420,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 | Récompense difficile à définir | Le compromis confort/coût est subjectif |
 
 ---
-
 ## 14. AMÉLIORATIONS
 
 - **DQN (Deep Q-Network) :** Q-Learning avec réseau de neurones pour les espaces d'états continus
@@ -445,7 +431,6 @@ plt.savefig("figures/rl_apprentissage.png", dpi=150, bbox_inches="tight")
 > **DQN (Deep Q-Network) :** extension du Q-Learning où la table Q est remplacée par un réseau de neurones. Permet de gérer des espaces d'états très grands ou continus. AlphaGo et les agents Atari de DeepMind utilisent cette approche.
 
 ---
-
 ## 15. ARCHITECTURE GITHUB
 
 ```
@@ -470,77 +455,6 @@ reinforcement-learning-business-case/
 ```
 
 ---
-
-## 16. README GITHUB
-
-```markdown
-# Reinforcement Learning — Business Case
-## Optimiser la gestion d'énergie d'un bâtiment par apprentissage par renforcement
-
-> **Auteur :** Emmanuel TSAGUE | **Environnement :** simulé
-
-## Objectif
-Démontrer les concepts fondamentaux du RL (agent, état, action, récompense, Q-Learning)
-sur un cas concret de gestion d'énergie, et comparer avec une politique à règles fixes.
-
-## Résultats (simulés)
-Q-Learning : +18 % vs règle fixe | Convergence : ~3 000 épisodes
-
-## Algorithmes couverts
-Q-Learning · ε-greedy · Décroissance epsilon · Équation de Bellman
-```
-
----
-
-## 17. VERSION CV
-
-> Apprentissage par renforcement appliqué à la gestion d'énergie d'un bâtiment : modélisation de l'environnement (état, action, récompense), implémentation du Q-Learning avec ε-greedy et décroissance de l'exploration, comparaison politique RL vs règle fixe (+18 % simulé), visualisation de la courbe d'apprentissage — Python, numpy.
-
----
-
-## 18. VERSION ENTRETIEN
-
-"J'ai construit un cas d'apprentissage par renforcement pour la gestion d'énergie d'un bâtiment. Le principe : un agent apprend à décider chaque heure si chauffer, maintenir ou refroidir, pour minimiser les coûts tout en maintenant le confort. L'environnement simule la thermodynamique du bâtiment, les tarifs heures creuses/pleines et la météo. L'agent utilise le Q-Learning : il maintient une table de valeurs pour chaque paire état-action, et la met à jour par l'équation de Bellman après chaque décision. La politique apprise surpasse la règle fixe de 18 % en termes de récompense — l'agent a appris à préchauffer pendant les heures creuses. La limite principale : le Q-Learning tabulaire ne passe pas à l'échelle pour des espaces d'états continus. L'amélioration naturelle serait un DQN."
-
----
-
-## 19. VERSION PORTFOLIO
-
-Ce projet démontre la connaissance d'une famille de ML moins connue mais très puissante pour les problèmes d'optimisation séquentielle. Il montre également la capacité à modéliser un problème industriel (gestion d'énergie) en termes RL (état, action, récompense). Les applications en énergie sont nombreuses : gestion de charge, dispatch électrique, optimisation de maintenance.
-
----
-
-## 20. POST LINKEDIN
-
-**Apprendre à décider progressivement dans un environnement incertain.**
-
-C'est exactement ce que fait l'apprentissage par renforcement.
-
-J'ai construit un cas d'usage qui l'illustre concrètement : un agent apprend à gérer le chauffage d'un bâtiment pour minimiser les coûts d'énergie tout en maintenant le confort.
-
-L'agent ne connaît pas la physique du bâtiment. Il ne connaît pas les tarifs d'électricité a priori. Il apprend par essais et erreurs, sur des milliers de simulations.
-
-Résultat simulé : après 5 000 épisodes d'apprentissage, l'agent améliore de 18 % les coûts par rapport à une règle fixe — en apprenant tout seul à préchauffer pendant les heures creuses.
-
-Ce type d'approche est applicable partout où on prend des décisions séquentielles : gestion de stock, dispatch énergétique, pilotage de procédé, recommandation dynamique.
-
-`#ReinforcementLearning` `#IA` `#DataScience` `#Énergie` `#Python` `#Optimisation`
-
----
-
-## 21. QUESTIONS D'ENTRETIEN
-
-**Q : Expliquez l'équation de Bellman simplement.**
-> Q(s,a) est la valeur d'une action dans un état. La mise à jour Bellman dit : "je mets à jour ma valeur actuelle vers la récompense que j'ai reçue, plus la meilleure valeur possible depuis le prochain état (pondérée par γ)". C'est un apprentissage par bootstrapping — on utilise nos propres estimations pour s'améliorer.
-
-**Q : Quelle différence entre Q-Learning et DQN ?**
-> Q-Learning stocke les valeurs Q dans une table — une entrée par paire (état, action). Ça ne passe pas à l'échelle si l'espace d'états est grand ou continu. DQN remplace la table par un réseau de neurones qui approxime la fonction Q — il peut généraliser à des états jamais vus. Le réseau est entraîné avec un experience replay buffer.
-
-**Q : Qu'est-ce que le compromis exploration/exploitation ?**
-> Exploiter = choisir l'action qu'on croit être la meilleure (maximiser la récompense à court terme). Explorer = essayer des actions inconnues pour peut-être découvrir mieux (investir dans l'apprentissage). ε-greedy résout ce dilemme : on explore aléatoirement avec probabilité ε, qu'on diminue progressivement pour passer de l'exploration à l'exploitation.
-
----
-
 ## 22-23. COMPÉTENCES DÉMONTRÉES
 
 | Compétence | Preuve | Valeur | Phrase CV |
@@ -553,4 +467,22 @@ Ce type d'approche est applicable partout où on prend des décisions séquentie
 
 ---
 
-*Fin du document — Emmanuel TSAGUE — CAS 8 — Apprentissage par Renforcement*
+*Fin du document — TSAGUE EMMANUEL — CAS 8 — Apprentissage par Renforcement*
+---
+
+## Contact & Liens
+
+**TSAGUE EMMANUEL** - Data Scientist
+
+| | |
+|---|---|
+| Email | [emmatsague@yahoo.fr](mailto:emmatsague@yahoo.fr) |
+| GitHub | [github.com/TSAGUE25](https://github.com/TSAGUE25) |
+| Formation | Datascientest 2024 |
+| Experience | EDF MAD EDVANCE |
+| Domaines | Machine Learning - Data Analysis - Energie |
+
+---
+
+> Toutes les donnees de ce depot sont simulees et anonymisees.  
+> Aucune donnee reelle ou confidentielle n'est presente.
