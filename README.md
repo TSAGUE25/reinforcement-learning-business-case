@@ -1,4 +1,4 @@
-# Apprentissage par Renforcement — Gestion d'Énergie
+﻿# Apprentissage par Renforcement — Gestion d'Énergie
 
 > **Un agent Q-Learning apprend à minimiser les coûts énergétiques par essais et erreurs**
 
@@ -114,9 +114,9 @@ DQN (Deep Q-Network) pour espace d'états continu. Multi-agent pour bâtiments m
 
 ---
 
-## Auteur
+## Contributors
 
-**Emmanuel TSAGUE** — Data Scientist / Data Analyst
+**TSAGUE Emmanuel** — Data Scientist / Data Analyst
 Domaine : Machine Learning · Reinforcement Learning · Optimisation
 GitHub : [TSAGUE25](https://github.com/TSAGUE25)
 
